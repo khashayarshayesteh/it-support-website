@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, Star, Users, Wrench } from 'lucide-react';
-import HeroBanner from '../assets/HeroBanner.png';
+import { ArrowRight, Star, Users, Wrench, Monitor, Search } from 'lucide-react';
+
+// Replace later with your own image if needed
+const HeroBanner = '/images/web-design.jpg'; // or seo.jpg
 
 const Hero: React.FC = () => {
   const [showPhone, setShowPhone] = useState(false);
   const phoneNumber = '+19493729853';
   const supportRef = useRef<HTMLDivElement>(null);
 
-  // Close popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (supportRef.current && !supportRef.current.contains(event.target as Node)) {
@@ -15,77 +16,108 @@ const Hero: React.FC = () => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
     <section
       id="home"
-      className="bg-white bg-cover bg-center bg-no-repeat py-24 lg:py-32 relative"
+      className="relative bg-cover bg-center bg-no-repeat py-24 lg:py-32 overflow-hidden"
       style={{ backgroundImage: `url(${HeroBanner})` }}
     >
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 text-white">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Your Complete
-                <span className="text-blue-400 block">Print Solution</span>
-                Partner
-              </h1>
-              <p className="text-xl text-gray-100 leading-relaxed">
-                From high-volume commercial copiers to desktop printers, we provide sales,
-                leasing, and expert repair services to keep your business running smoothly.
-              </p>
+          <div className="text-white space-y-8 animate-fadeInUp">
+
+            {/* Badge */}
+            <span className="inline-block bg-blue-500/20 text-blue-300 px-4 py-1 rounded-full text-sm font-medium">
+              Trusted Local IT Experts
+            </span>
+
+            {/* Headline */}
+            <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+              Your All-in-One
+              <span className="block text-blue-400">IT Support Partner</span>
+            </h1>
+
+            {/* Sub-headline */}
+            <p className="text-xl text-gray-200 max-w-xl">
+              IT Support, Web Design, and SEO services that help your business run faster,
+              safer, and smarter.
+            </p>
+
+            {/* Service Pills */}
+            <div className="flex flex-wrap gap-3">
+              <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
+                <Monitor className="h-4 w-4 text-blue-400" />
+                Web Design
+              </span>
+              <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
+                <Search className="h-4 w-4 text-green-400" />
+                SEO
+              </span>
+              <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
+                <Wrench className="h-4 w-4 text-yellow-400" />
+                IT Support
+              </span>
             </div>
 
-            <div className="flex flex-wrap gap-8 items-center">
-              <div className="flex items-center space-x-2">
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8">
+              <div className="flex items-center gap-2">
                 <Star className="h-5 w-5 text-yellow-400" />
                 <span className="text-sm font-medium">8+ Years Experience</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-green-400" />
                 <span className="text-sm font-medium">500+ Happy Clients</span>
               </div>
 
-              {/* Clickable 24/7 Support */}
+              {/* 24/7 Support */}
               <div className="relative" ref={supportRef}>
                 <button
                   onClick={() => setShowPhone(!showPhone)}
-                  className="flex items-center gap-2 text-sm font-medium bg-blue-500 px-4 py-2 rounded-xl shadow-lg hover:bg-blue-600 transition"
+                  className="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-xl text-sm font-medium shadow-lg hover:bg-blue-600 transition"
                 >
-                  <Wrench className="h-5 w-5 text-white" />
+                  <Wrench className="h-5 w-5" />
                   24/7 Support
                 </button>
 
                 {showPhone && (
-                  <div className="absolute mt-2 p-3 bg-white text-black rounded shadow-lg text-sm">
-                    Call us: <a href={`tel:${phoneNumber}`} className="font-semibold hover:text-blue-500">{phoneNumber}</a>
+                  <div className="absolute mt-2 p-3 bg-white text-black rounded-lg shadow-lg text-sm">
+                    Call us:
+                    <a
+                      href={`tel:${phoneNumber}`}
+                      className="block font-semibold text-blue-600 hover:underline"
+                    >
+                      {phoneNumber}
+                    </a>
                   </div>
                 )}
               </div>
             </div>
 
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-200 flex items-center justify-center space-x-2 group"
+                className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition flex items-center justify-center gap-2"
               >
-                <span>Get Free Quote</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                Get Free Quote
+                <ArrowRight className="h-5 w-5" />
               </a>
+
               <a
                 href="#services"
-                className="border-2 border-blue-400 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition-all duration-200 text-center"
+                className="border border-blue-400 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition text-center"
               >
                 View Services
               </a>
             </div>
+
           </div>
         </div>
       </div>

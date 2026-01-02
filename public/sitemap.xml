@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <!-- Homepage -->
-    <url>
-        <loc>https://khashayarshayesteh.github.io/copiers/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+  <!-- Homepage -->
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-    <!-- Example additional pages -->
-    <url>
-        <loc>https://khashayarshayesteh.github.io/copiers/about</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+  <!-- Hero / Services / About / Contact sections -->
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/#home</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/#services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/#about</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/#contact</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-    <url>
-        <loc>https://khashayarshayesteh.github.io/copiers/contact</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
+  <!-- Optional: Add other pages if you have blog, portfolio, etc. -->
+  <!--
+  <url>
+    <loc>https://khashayarshayesteh.github.io/it-support-website/blog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  -->
 </urlset>

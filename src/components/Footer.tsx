@@ -1,29 +1,43 @@
 import React from 'react';
-import { Printer, Phone, Mail, MapPin, Clock, Facebook, Twitter, Linkedin } from 'lucide-react';
+import {
+  Globe,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Linkedin
+} from 'lucide-react';
 
 const Footer: React.FC = () => {
   const services = [
-    'Commercial Copiers',
-    'Desktop Printers',
-    'Equipment Leasing',
-    'Repair & Maintenance',
-    'Managed Print Services',
-    'Preventive Maintenance'
+    'Website Design & Development',
+    'Google SEO & Local Ranking',
+    'IT Support & Troubleshooting',
+    'Business Networking & Setup',
+    'Cloud & Email Configuration',
+    'Ongoing Maintenance & Support'
   ];
 
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Products', href: '#products' },
+    { name: 'Portfolio', href: '#products' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Request Quote', href: '#contact' },
-    { name: 'Emergency Service', href: '#contact' }
+    { name: 'Free Consultation', href: '#contact' }
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', name: 'Facebook' },
-    { icon: Twitter, href: '#', name: 'Twitter' },
-    { icon: Linkedin, href: '#', name: 'LinkedIn' }
+    {
+      icon: Facebook,
+      href: 'https://www.facebook.com/YourBusinessPage',
+      name: 'Facebook'
+    },
+    {
+      icon: Linkedin,
+      href: '#',
+      name: 'LinkedIn'
+    }
   ];
 
   return (
@@ -32,34 +46,39 @@ const Footer: React.FC = () => {
         <div className="grid lg:grid-cols-4 gap-8">
 
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="flex items-center space-x-2 mb-6">
               <div className="bg-blue-500 p-2 rounded-lg">
-                <Printer className="h-6 w-6 text-white" />
+                <Globe className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">PrintTech Solutions</h3>
-                <p className="text-gray-400 text-sm">Sales • Lease • Repair</p>
+                <h3 className="text-xl font-bold">IT Support</h3>
+                <p className="text-gray-400 text-sm">
+                  Website Design • SEO • Networking
+                </p>
               </div>
             </div>
 
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner for comprehensive printing and copying solutions.
-              Serving businesses with quality equipment and exceptional service since 2009.
+              Professional IT support helping businesses grow online.
+              We design modern websites, improve Google rankings, and build
+              reliable networks for small and medium businesses.
             </p>
 
-            {/* Social Links */}
+            {/* Social */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
+                const Icon = social.icon;
                 return (
                   <a
                     key={index}
                     href={social.href}
-                    className="bg-gray-800 p-2 rounded-lg hover:bg-blue-500 transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 p-2 rounded-lg hover:bg-blue-500 transition"
                     aria-label={social.name}
                   >
-                    <IconComponent className="h-5 w-5" />
+                    <Icon className="h-5 w-5" />
                   </a>
                 );
               })}
@@ -74,9 +93,9 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href="#services"
-                    className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-2"
+                    className="text-gray-300 hover:text-white flex items-center space-x-2"
                   >
-                    <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                    <span className="w-1 h-1 bg-blue-400 rounded-full" />
                     <span>{service}</span>
                   </a>
                 </li>
@@ -92,9 +111,9 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-2"
+                    className="text-gray-300 hover:text-white flex items-center space-x-2"
                   >
-                    <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                    <span className="w-1 h-1 bg-blue-400 rounded-full" />
                     <span>{link.name}</span>
                   </a>
                 </li>
@@ -102,55 +121,40 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
 
-              {/* Address */}
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=1540+S+Lyon,+Santa+Ana,+CA+92605"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    <p>1540 S Lyon</p>
-                    <p>Santa Ana, CA 92605</p>
-                  </a>
-                </div>
+                <MapPin className="h-5 w-5 text-blue-400 mt-1" />
+                <p className="text-gray-300">
+                  Irvine & Orange County, CA
+                </p>
               </div>
 
-              {/* Phone */}
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <a href="tel:+19493729853" className="hover:text-white transition-colors duration-200">
-                    (949) 372-9853
-                  </a>
-                  <p className="text-sm">Emergency: 24/7</p>
-                </div>
+                <Phone className="h-5 w-5 text-blue-400" />
+                <a href="tel:+19493729853" className="hover:text-white">
+                  (949) 372-9853
+                </a>
               </div>
 
-              {/* Email */}
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <a href="mailto:sales@printtechsolutions.com" className="hover:text-white transition-colors duration-200">
-                    sales@printtechsolutions.com
-                  </a>
-                  <p className="text-sm">Response within 2 hours</p>
-                </div>
+                <Mail className="h-5 w-5 text-blue-400" />
+                <a
+                  href="mailto:shayesteh.office@gmail.com"
+                  className="hover:text-white"
+                >
+                  shayesteh.office@gmail.com
+                </a>
               </div>
 
-              {/* Hours */}
               <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
+                <Clock className="h-5 w-5 text-blue-400 mt-1" />
                 <div className="text-gray-300">
-                  <p>Mon-Fri: 8AM - 6PM</p>
-                  <p>Saturday: 9AM - 2PM</p>
+                  <p>Mon – Fri: 9AM – 6PM</p>
+                  <p>Emergency IT Support Available</p>
                 </div>
               </div>
 
@@ -158,32 +162,30 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Emergency Banner */}
+        {/* Call to Action */}
         <div className="mt-12 bg-blue-500 rounded-lg p-6 text-center">
-          <h4 className="text-xl font-bold mb-2">Emergency Service Available 24/7</h4>
-          <p className="mb-4">Printer down? Need immediate assistance? We're here to help.</p>
+          <h4 className="text-xl font-bold mb-2">
+            Need Reliable IT Support?
+          </h4>
+          <p className="mb-4">
+            Let us help you build, rank, and maintain your business technology.
+          </p>
           <a
-            href="tel:+19493729853"
-            className="bg-white text-blue-500 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+            href="#contact"
+            className="bg-white text-blue-500 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition"
           >
-            Call Emergency Line
+            Free Consultation
           </a>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              © 2024 PrintTech Solutions. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors duration-200">Warranty</a>
-            </div>
+        {/* Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <span>© 2025 IT Support. All rights reserved.</span>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="#" className="hover:text-white">Terms</a>
           </div>
         </div>
-
       </div>
     </footer>
   );

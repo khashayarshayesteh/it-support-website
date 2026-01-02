@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Printer, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 import { FaFacebook } from 'react-icons/fa';
 
 const Header: React.FC = () => {
@@ -8,13 +8,13 @@ const Header: React.FC = () => {
   const menuItems = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
-    { name: 'Products', href: '#products' },
+    { name: 'Portfolio', href: '#products' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <header className="bg-slate-500 border-b border-slate-500 sticky top-0 z-50">
+    <header className="bg-slate-600 border-b border-slate-600 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ===== Top Row ===== */}
@@ -22,24 +22,23 @@ const Header: React.FC = () => {
 
           {/* Logo + Name */}
           <div className="flex items-center gap-4">
-
-
             <div>
-              <h1 className="text-3xl md:text-4xl tracking-tight font-bold text-white">
-                PrintTech Solutions
+              <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                IT Support
               </h1>
-              <p className="text-slate-300 text-sm">
-                Lease • Rental • Repair
+
+              <p className="text-slate-200 text-sm mt-1">
+                Website Design • Google SEO • Networking
               </p>
 
-              {/* Contact */}
-              <div className="hidden md:flex gap-6 mt-1">
+              {/* Contact (Desktop) */}
+              <div className="hidden md:flex gap-6 mt-2 text-sm">
                 <a
-                  href="tel:+9493729853"
+                  href="tel:+19493729853"
                   className="flex items-center gap-2 text-slate-200 hover:text-blue-400"
                 >
                   <Phone className="h-4 w-4" />
-                  (949)372-9853
+                  (949) 372-9853
                 </a>
 
                 <a
@@ -70,7 +69,7 @@ const Header: React.FC = () => {
               href="#contact"
               className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition"
             >
-              Get Quote
+              Free Consultation
             </a>
 
             {/* Facebook */}
@@ -113,23 +112,17 @@ const Header: React.FC = () => {
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg text-center font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Get Quote
+                Free Consultation
               </a>
 
               {/* Mobile Contact */}
-              <div className="pt-4 space-y-3">
-                <a
-                  href="tel:+9493729853"
-                  className="flex items-center gap-2 text-gray-700"
-                >
+              <div className="pt-4 space-y-3 text-sm">
+                <a href="tel:+19493729853" className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-blue-500" />
-                  (949)3729853
+                  (949) 372-9853
                 </a>
 
-                <a
-                  href="mailto:shayesteh.office@gmail.com"
-                  className="flex items-center gap-2 text-gray-700"
-                >
+                <a href="mailto:shayesteh.office@gmail.com" className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-blue-500" />
                   shayesteh.office@gmail.com
                 </a>

@@ -5,66 +5,77 @@ const About = () => {
   const values = [
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'We maintain the highest standards in every service we provide, ensuring quality results every time.'
+      title: 'Quality & Expertise',
+      description:
+        'We deliver high-quality solutions backed by years of hands-on experience in IT support, web development, and SEO.'
     },
     {
       icon: Clock,
       title: 'Reliability',
-      description: 'Count on us for prompt service, dependable equipment, and consistent support when you need it most.'
+      description:
+        'Our clients count on us for fast response times, dependable service, and solutions that work when it matters most.'
     },
     {
       icon: Users,
-      title: 'Partnership',
-      description: 'We build lasting relationships with our clients, becoming a trusted extension of your team.'
+      title: 'Client-Focused Approach',
+      description:
+        'We treat every client as a long-term partner, tailoring solutions to meet unique business goals and challenges.'
     },
     {
       icon: Shield,
-      title: 'Integrity',
-      description: 'Honest pricing, transparent communication, and ethical business practices guide everything we do.'
+      title: 'Trust & Transparency',
+      description:
+        'Clear communication, honest pricing, and ethical practices are the foundation of everything we do.'
     }
   ];
 
   const stats = [
-    { number: '8+', label: 'Years in Business' },
-    { number: '500+', label: 'Satisfied Clients' },
-    { number: '24/7', label: 'Support Available' },
-    { number: '99%', label: 'Customer Satisfaction' }
+    { number: '8+', label: 'Years of Experience' },
+    { number: '500+', label: 'Clients Supported' },
+    { number: '24/7', label: 'Technical Support' },
+    { number: '99%', label: 'Client Satisfaction' }
   ];
 
   return (
     <section id="about" className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold text-white">About PrintTech Solutions</h2>
+          <h2 className="text-4xl font-bold text-white">
+            About Our Company
+          </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Your trusted partner for comprehensive printing and copying solutions, 
-            serving businesses across the region with expertise and dedication.
+            We help businesses stay secure, visible, and competitive through
+            reliable IT support, modern web design, and data-driven SEO strategies.
           </p>
         </div>
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+
           {/* Story */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-white">Our Story</h3>
+            <h3 className="text-3xl font-bold text-white">
+              Who We Are
+            </h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                Founded in 2009, PrintTech Solutions began with a simple mission: to provide businesses 
-                with reliable, cost-effective printing solutions backed by exceptional service. What started 
-                as a small local operation has grown into a trusted partner for hundreds of businesses.
+                Founded with a passion for technology and problem-solving, our company
+                was built to help businesses navigate today’s fast-changing digital landscape.
+                From reliable IT support to high-performing websites and SEO strategies,
+                we provide solutions that create real results.
               </p>
               <p>
-                Our team of certified technicians and sales professionals brings decades of combined 
-                experience to every client interaction. We understand that printing and copying needs 
-                are critical to your business operations, which is why we're committed to minimizing 
-                downtime and maximizing productivity.
+                Our team brings years of experience working with small and mid-sized businesses,
+                delivering secure systems, modern digital experiences, and scalable growth solutions.
+                We focus on reducing downtime, improving visibility, and helping your business
+                operate more efficiently.
               </p>
               <p>
-                Today, we continue to evolve with technology while maintaining our core values of 
-                integrity, reliability, and customer-first service that have made us the go-to choice 
-                for printing solutions in the region.
+                As technology evolves, so do we. We continuously adapt our tools and strategies
+                to ensure our clients stay ahead—while remaining grounded in the values of trust,
+                reliability, and customer-first service.
               </p>
             </div>
           </div>
@@ -72,11 +83,12 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Our professional team at work"
+              src="/images/web-design.jpg"
+              alt="IT support, web design, and digital solutions"
               className="w-full h-96 object-cover rounded-2xl shadow-lg"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
           </div>
         </div>
 
@@ -85,8 +97,12 @@ const About = () => {
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="bg-gray-900 rounded-2xl p-6 border border-gray-700">
-                <div className="text-3xl font-bold text-blue-400 mb-2">{stat.number}</div>
-                <div className="text-gray-300 font-medium">{stat.label}</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 font-medium">
+                  {stat.label}
+                </div>
               </div>
             </div>
           ))}
@@ -94,37 +110,46 @@ const About = () => {
 
         {/* Values */}
         <div>
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Our Values</h3>
+          <h3 className="text-3xl font-bold text-white text-center mb-12">
+            Our Core Values
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
-              const IconComponent = value.icon;
+              const Icon = value.icon;
               return (
                 <div key={index} className="text-center">
                   <div className="bg-blue-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-blue-400" />
+                    <Icon className="h-8 w-8 text-blue-400" />
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-3">{value.title}</h4>
-                  <p className="text-gray-300 leading-relaxed">{value.description}</p>
+                  <h4 className="text-xl font-bold text-white mb-3">
+                    {value.title}
+                  </h4>
+                  <p className="text-gray-300 leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Team CTA */}
+        {/* CTA */}
         <div className="mt-20 bg-gradient-to-r from-gray-900 to-blue-900/50 rounded-2xl p-12 text-center border border-gray-700">
-          <h3 className="text-3xl font-bold text-white mb-4">Meet Our Expert Team</h3>
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Let’s Build Something Better
+          </h3>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Our certified technicians and sales professionals are here to help you find the perfect 
-            solution for your business needs.
+            Whether you need dependable IT support, a modern website, or better
+            search visibility, our team is ready to help.
           </p>
           <a
             href="#contact"
-            className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200"
+            className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition"
           >
-            Schedule a Consultation
+            Schedule a Free Consultation
           </a>
         </div>
+
       </div>
     </section>
   );
