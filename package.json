@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://khashayarshayesteh.github.io/copiers/",
+  "homepage": "https://khashayarshayesteh.github.io/it-support-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
