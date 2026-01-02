@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khashayarshayesteh.github.io/it-support-website/sitemap.xml
