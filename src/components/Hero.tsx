@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, Star, Users, Wrench, Monitor, Search } from 'lucide-react';
+import { ArrowRight, Star, Users, Wrench, Anchor, Radar } from 'lucide-react';
 
-// Replace later with your own image if needed
-const HeroBanner = '/images/web-design.jpg'; // or seo.jpg
+import HeroBanner from '../assets/hero.png';
+
 
 const Hero: React.FC = () => {
   const [showPhone, setShowPhone] = useState(false);
-  const phoneNumber = '+19493729853';
+  const phoneNumber = '+19494660506';
   const supportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       className="relative bg-cover bg-center bg-no-repeat py-24 lg:py-32 overflow-hidden"
       style={{ backgroundImage: `url(${HeroBanner})` }}
     >
-      {/* Gradient Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,34 +34,36 @@ const Hero: React.FC = () => {
 
             {/* Badge */}
             <span className="inline-block bg-blue-500/20 text-blue-300 px-4 py-1 rounded-full text-sm font-medium">
-              Trusted Local IT Experts
+              Trusted Local Marine Professionals
             </span>
 
             {/* Headline */}
             <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-              Your All-in-One
-              <span className="block text-blue-400">IT Support Partner</span>
+              Professional
+              <span className="block text-blue-400">
+                Yacht & Marine Services
+              </span>
             </h1>
 
             {/* Sub-headline */}
             <p className="text-xl text-gray-200 max-w-xl">
-              IT Support, Web Design, and SEO services that help your business run faster,
-              safer, and smarter.
+              Expert yacht maintenance, marine electronics installation, and on-demand
+              marine support serving Dana Point, Newport Beach, and Long Beach.
             </p>
 
             {/* Service Pills */}
             <div className="flex flex-wrap gap-3">
               <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
-                <Monitor className="h-4 w-4 text-blue-400" />
-                Web Design
+                <Anchor className="h-4 w-4 text-blue-400" />
+                Yacht Maintenance
               </span>
               <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
-                <Search className="h-4 w-4 text-green-400" />
-                SEO
+                <Radar className="h-4 w-4 text-green-400" />
+                Marine Electronics
               </span>
               <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-sm">
                 <Wrench className="h-4 w-4 text-yellow-400" />
-                IT Support
+                Emergency Support
               </span>
             </div>
 
@@ -73,7 +75,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">500+ Happy Clients</span>
+                <span className="text-sm font-medium">500+ Satisfied Clients</span>
               </div>
 
               {/* 24/7 Support */}
@@ -83,7 +85,7 @@ const Hero: React.FC = () => {
                   className="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-xl text-sm font-medium shadow-lg hover:bg-blue-600 transition"
                 >
                   <Wrench className="h-5 w-5" />
-                  24/7 Support
+                  24/7 Marine Support
                 </button>
 
                 {showPhone && (
@@ -106,7 +108,7 @@ const Hero: React.FC = () => {
                 href="#contact"
                 className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition flex items-center justify-center gap-2"
               >
-                Get Free Quote
+                Request a Quote
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -114,7 +116,7 @@ const Hero: React.FC = () => {
                 href="#services"
                 className="border border-blue-400 text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition text-center"
               >
-                View Services
+                View Marine Services
               </a>
             </div>
 

@@ -1,44 +1,44 @@
 import React from 'react';
-import WebDesign from '../assets/web-design.jpg';
-import Seo from '../assets/seo.jpg';
-import Networking from '../assets/networking.png';
-import Cloud from '../assets/cloud.png';
-import Security from '../assets/security.png';
+import YachtMaintenance from '../assets/yacht-maintenance.jpg';
+import MarineElectronics from '../assets/marine-electronics.jpg';
+import Cleaning from '../assets/cleaning.jpg';
+import Docking from '../assets/docking.jpg';
+import Security from '../assets/security.png'; // optional
 
 const Products: React.FC = () => {
   const categories = [
     {
-      title: 'Website Design & Development',
+      title: 'Yacht Maintenance',
       description:
-        'Modern, fast, and mobile-friendly websites built to convert visitors into customers.',
+        'Keep your yacht in top condition with expert cleaning, repairs, and maintenance services.',
       features: [
-        'Responsive design',
-        'React & modern frameworks',
-        'Fast loading & optimized',
-        'Business branding'
+        'Hull & deck cleaning',
+        'Engine check & servicing',
+        'Interior detailing',
+        'Routine maintenance plans'
       ],
-      image: WebDesign
+      image: YachtMaintenance
     },
     {
-      title: 'Google SEO & Online Visibility',
+      title: 'Marine Electronics',
       description:
-        'Get your business found on Google with proven SEO and local ranking strategies.',
+        'Install and maintain marine electronics for navigation, communication, and safety.',
       features: [
-        'On-page SEO',
-        'Local Google Maps ranking',
-        'Search Console setup',
+        'GPS & radar installation',
+        'Marine audio systems',
+        'Safety alarms & monitoring',
         'Performance optimization'
       ],
-      image: Seo
+      image: MarineElectronics
     }
   ];
 
   const technologies = [
-    { name: 'Networking', logo: Networking },
-    { name: 'Cloud Services', logo: Cloud },
-    { name: 'Security', logo: Security },
-    { name: 'Web Platforms', logo: WebDesign },
-    { name: 'SEO Tools', logo: Seo }
+    { name: 'Docking & Marina Setup', logo: Docking },
+    { name: 'Cleaning & Detailing', logo: Cleaning },
+    { name: 'Safety & Security', logo: Security },
+    { name: 'Marine Electronics', logo: MarineElectronics },
+    { name: 'Maintenance Tools', logo: YachtMaintenance }
   ];
 
   return (
@@ -48,11 +48,10 @@ const Products: React.FC = () => {
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl font-bold text-white">
-            Our IT Services
+            Our Marine Services
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Complete IT solutions to build, optimize, and support your business
-            technology — from websites and SEO to networking and security.
+            Complete yacht and marine solutions — maintenance, electronics, docking, cleaning, and more.
           </p>
         </div>
 
@@ -95,10 +94,10 @@ const Products: React.FC = () => {
           ))}
         </div>
 
-        {/* Technologies */}
+        {/* Technologies / Tools */}
         <div className="text-center">
           <h3 className="text-2xl font-bold text-white mb-8">
-            Technologies & Platforms We Support
+            Services & Equipment We Use
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
@@ -124,17 +123,16 @@ const Products: React.FC = () => {
         <div className="mt-16 text-center">
           <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Need IT Help or a New Website?
+              Need Marine Services?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Let our experts design your website, improve your Google ranking,
-              and set up reliable networking for your business.
+              Let our experts maintain your yacht, install electronics, and ensure your vessel is safe and ready to sail.
             </p>
             <a
               href="#contact"
               className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition"
             >
-              Free Consultation
+              Request Service
             </a>
           </div>
         </div>

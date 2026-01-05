@@ -1,39 +1,40 @@
 import React from 'react';
 import { Award, Clock, Users, Shield } from 'lucide-react';
+import marineImg from '../assets/yacht-maintenance.jpg';
 
-const About = () => {
+const About: React.FC = () => {
   const values = [
     {
       icon: Award,
-      title: 'Quality & Expertise',
+      title: 'Marine Expertise',
       description:
-        'We deliver high-quality solutions backed by years of hands-on experience in IT support, web development, and SEO.'
+        'We bring hands-on experience in marine electronics, vessel maintenance, docking solutions, and onboard security systems.',
     },
     {
       icon: Clock,
-      title: 'Reliability',
+      title: 'Reliable Service',
       description:
-        'Our clients count on us for fast response times, dependable service, and solutions that work when it matters most.'
+        'Boat owners trust us for on-time service, attention to detail, and dependable solutions—onshore or dockside.',
     },
     {
       icon: Users,
-      title: 'Client-Focused Approach',
+      title: 'Customer-First Approach',
       description:
-        'We treat every client as a long-term partner, tailoring solutions to meet unique business goals and challenges.'
+        'Every vessel is different. We tailor our services to your boat, your needs, and how you use the water.',
     },
     {
       icon: Shield,
-      title: 'Trust & Transparency',
+      title: 'Safety & Trust',
       description:
-        'Clear communication, honest pricing, and ethical practices are the foundation of everything we do.'
-    }
+        'From secure installations to transparent pricing, we prioritize safety, reliability, and long-term peace of mind.',
+    },
   ];
 
   const stats = [
-    { number: '8+', label: 'Years of Experience' },
-    { number: '500+', label: 'Clients Supported' },
-    { number: '24/7', label: 'Technical Support' },
-    { number: '99%', label: 'Client Satisfaction' }
+    { number: '8+', label: 'Years of Marine Experience' },
+    { number: '400+', label: 'Boats Serviced' },
+    { number: '24/7', label: 'Support Availability' },
+    { number: '99%', label: 'Client Satisfaction' },
   ];
 
   return (
@@ -42,12 +43,9 @@ const About = () => {
 
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold text-white">
-            About Our Company
-          </h2>
+          <h2 className="text-4xl font-bold text-white">About Us</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We help businesses stay secure, visible, and competitive through
-            reliable IT support, modern web design, and data-driven SEO strategies.
+            We provide professional marine services designed to improve safety, performance, and reliability for boat owners.
           </p>
         </div>
 
@@ -56,26 +54,16 @@ const About = () => {
 
           {/* Story */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-white">
-              Who We Are
-            </h3>
+            <h3 className="text-3xl font-bold text-white">Who We Are</h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                Founded with a passion for technology and problem-solving, our company
-                was built to help businesses navigate today’s fast-changing digital landscape.
-                From reliable IT support to high-performing websites and SEO strategies,
-                we provide solutions that create real results.
+                Founded by marine professionals with a passion for precision and craftsmanship, our company was built to support boat owners with reliable, high-quality marine services.
               </p>
               <p>
-                Our team brings years of experience working with small and mid-sized businesses,
-                delivering secure systems, modern digital experiences, and scalable growth solutions.
-                We focus on reducing downtime, improving visibility, and helping your business
-                operate more efficiently.
+                From advanced marine electronics installation to routine cleaning, docking support, and onboard security systems, we help keep your vessel safe, efficient, and ready for the water.
               </p>
               <p>
-                As technology evolves, so do we. We continuously adapt our tools and strategies
-                to ensure our clients stay ahead—while remaining grounded in the values of trust,
-                reliability, and customer-first service.
+                We understand the importance of reliability on the water. That’s why we focus on trusted equipment, clean installations, and service you can count on—every time you leave the dock.
               </p>
             </div>
           </div>
@@ -83,8 +71,8 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <img
-              src="/images/web-design.jpg"
-              alt="IT support, web design, and digital solutions"
+              src={marineImg} // ✅ Use imported variable
+              alt="Marine electronics installation and yacht maintenance"
               className="w-full h-96 object-cover rounded-2xl shadow-lg"
               loading="lazy"
             />
@@ -97,12 +85,8 @@ const About = () => {
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="bg-gray-900 rounded-2xl p-6 border border-gray-700">
-                <div className="text-3xl font-bold text-blue-400 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 font-medium">
-                  {stat.label}
-                </div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">{stat.number}</div>
+                <div className="text-gray-300 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -110,9 +94,7 @@ const About = () => {
 
         {/* Values */}
         <div>
-          <h3 className="text-3xl font-bold text-white text-center mb-12">
-            Our Core Values
-          </h3>
+          <h3 className="text-3xl font-bold text-white text-center mb-12">Our Core Values</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
@@ -121,12 +103,8 @@ const About = () => {
                   <div className="bg-blue-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-8 w-8 text-blue-400" />
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-3">
-                    {value.title}
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    {value.description}
-                  </p>
+                  <h4 className="text-xl font-bold text-white mb-3">{value.title}</h4>
+                  <p className="text-gray-300 leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
@@ -135,18 +113,15 @@ const About = () => {
 
         {/* CTA */}
         <div className="mt-20 bg-gradient-to-r from-gray-900 to-blue-900/50 rounded-2xl p-12 text-center border border-gray-700">
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Let’s Build Something Better
-          </h3>
+          <h3 className="text-3xl font-bold text-white mb-4">Your Boat Deserves Expert Care</h3>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Whether you need dependable IT support, a modern website, or better
-            search visibility, our team is ready to help.
+            From marine electronics to cleaning, docking, and security—our team is ready to keep your vessel protected and performing at its best.
           </p>
           <a
             href="#contact"
             className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition"
           >
-            Schedule a Free Consultation
+            Request a Free Consultation
           </a>
         </div>
 

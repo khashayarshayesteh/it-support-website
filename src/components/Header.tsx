@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const menuItems = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#products' },
+    { name: 'Gallery', href: '#portfolio' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -24,29 +24,29 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-4">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                IT Support
+                Digitech Marine
               </h1>
 
               <p className="text-slate-200 text-sm mt-1">
-                Website Design • Google SEO • Networking
+                Professional Yacht & Marine Services
               </p>
 
               {/* Contact (Desktop) */}
               <div className="hidden md:flex gap-6 mt-2 text-sm">
                 <a
-                  href="tel:+19493729853"
+                  href="tel:+19494660506"
                   className="flex items-center gap-2 text-slate-200 hover:text-blue-400"
                 >
                   <Phone className="h-4 w-4" />
-                  (949) 372-9853
+                  (949)466-0506
                 </a>
 
                 <a
-                  href="mailto:shayesteh.office@gmail.com"
+                  href="mailto:info@digitechmarine.com"
                   className="flex items-center gap-2 text-slate-200 hover:text-blue-400"
                 >
                   <Mail className="h-4 w-4" />
-                  shayesteh.office@gmail.com
+                  info@digitechmarine.com
                 </a>
               </div>
             </div>
@@ -69,12 +69,12 @@ const Header: React.FC = () => {
               href="#contact"
               className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition"
             >
-              Free Consultation
+              Request Service
             </a>
 
             {/* Facebook */}
             <a
-              href="https://www.facebook.com/YourPrinterBusinessPage"
+              href="https://www.facebook.com/DigitechMarine"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-blue-500"
@@ -112,23 +112,23 @@ const Header: React.FC = () => {
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg text-center font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Free Consultation
+                Request Service
               </a>
 
               {/* Mobile Contact */}
               <div className="pt-4 space-y-3 text-sm">
-                <a href="tel:+19493729853" className="flex items-center gap-2">
+                <a href="tel:+19494660506" className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-blue-500" />
-                  (949) 372-9853
+                  (949)466-0506
                 </a>
 
-                <a href="mailto:shayesteh.office@gmail.com" className="flex items-center gap-2">
+                <a href="mailto:info@digitechmarine.com" className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-blue-500" />
-                  shayesteh.office@gmail.com
+                  info@digitechmarine.com
                 </a>
 
                 <a
-                  href="https://www.facebook.com/YourPrinterBusinessPage"
+                  href="https://www.facebook.com/DigitechMarine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex text-blue-600"

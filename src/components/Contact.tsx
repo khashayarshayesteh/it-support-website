@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +16,21 @@ const Contact = () => {
     service: '',
     message: '',
   });
+  const [captchaReady, setCaptchaReady] = useState(false);
+
+  // Load reCAPTCHA v3 script
+  useEffect(() => {
+    if (!document.getElementById('recaptcha-v3')) {
+      const script = document.createElement('script');
+      script.id = 'recaptcha-v3';
+      script.src = `https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY`;
+      script.async = true;
+      script.onload = () => setCaptchaReady(true);
+      document.body.appendChild(script);
+    } else {
+      setCaptchaReady(true);
+    }
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -20,66 +41,73 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // TODO: connect to email service or backend
+
+    if (!captchaReady || !window.grecaptcha) {
+      alert('Captcha is not ready. Please try again.');
+      return;
+    }
+
+    try {
+      // Execute invisible reCAPTCHA
+      const token = await window.grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' });
+
+      console.log('Captcha token:', token);
+      console.log('Form data:', formData);
+
+      // TODO: send formData + token to your backend for verification
+      // Example:
+      // await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ ...formData, token }),
+      // });
+
+      alert('Request submitted successfully!');
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Captcha verification failed:', error);
+      alert('Captcha verification failed. Please try again.');
+    }
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: 'Call Us',
-      details: ['(949) 372-9853'],
-      description: 'Mon–Fri, 8AM–6PM',
-    },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      details: ['shayesteh.office@gmail.com'],
-      description: 'We respond within 2 hours',
-    },
-    {
-      icon: MapPin,
-      title: 'Location',
-      details: ['Santa Ana, CA'],
-      description: 'Serving surrounding areas',
-    },
-    {
-      icon: Clock,
-      title: 'Availability',
-      details: ['Business Hours: 8AM – 6PM'],
-      description: 'Emergency support available 24/7',
-    },
+    { icon: Phone, title: 'Call Us', details: ['(949)466-0506'], description: 'Mon–Fri, 8AM–6PM' },
+    { icon: Mail, title: 'Email Us', details: ['shayesteh.office@gmail.com'], description: 'Fast response for marine service requests' },
+    { icon: MapPin, title: 'Service Area', details: ['Orange County, CA'], description: 'Marinas & dockside service available' },
+    { icon: Clock, title: 'Availability', details: ['Scheduled & On-Demand Service'], description: 'Emergency marine support available' },
   ];
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl font-bold text-white">Contact Us</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Need IT support, a new website, or better visibility on Google?
-            Let’s talk about how we can help your business grow.
+            Need marine electronics installation, boat cleaning, docking support, or security systems? Tell us how we can help.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Get in Touch
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-300 leading-relaxed mb-8">
-                Reach out for expert IT assistance, professional web design,
-                or SEO strategies that deliver real results.
+                Contact our marine service team for professional, reliable solutions tailored to your boat and marina needs.
               </p>
             </div>
-
             <div className="space-y-6">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
@@ -89,17 +117,11 @@ const Contact = () => {
                       <Icon className="h-6 w-6 text-blue-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        {item.title}
-                      </h4>
+                      <h4 className="font-semibold text-white mb-1">{item.title}</h4>
                       {item.details.map((detail, i) => (
-                        <p key={i} className="text-gray-300">
-                          {detail}
-                        </p>
+                        <p key={i} className="text-gray-300">{detail}</p>
                       ))}
-                      <p className="text-sm text-gray-400 mt-1">
-                        {item.description}
-                      </p>
+                      <p className="text-sm text-gray-400 mt-1">{item.description}</p>
                     </div>
                   </div>
                 );
@@ -110,17 +132,12 @@ const Contact = () => {
           {/* Form */}
           <div className="lg:col-span-2">
             <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-lg">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Request a Free Quote
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Request Marine Service</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Full Name *
-                    </label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
                     <input
                       type="text"
                       name="name"
@@ -131,11 +148,8 @@ const Contact = () => {
                       placeholder="Your full name"
                     />
                   </div>
-
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Email Address *
-                    </label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Email Address *</label>
                     <input
                       type="email"
                       name="email"
@@ -150,23 +164,18 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Company Name
-                    </label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Boat / Company Name</label>
                     <input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white"
-                      placeholder="Your company (optional)"
+                      placeholder="Boat or company name (optional)"
                     />
                   </div>
-
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Phone Number
-                    </label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
@@ -179,9 +188,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Service Needed *
-                  </label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Service Needed *</label>
                   <select
                     name="service"
                     required
@@ -190,17 +197,16 @@ const Contact = () => {
                     className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Select a service</option>
-                    <option value="it-support">IT Support & Maintenance</option>
-                    <option value="web-design">Web Design & Development</option>
-                    <option value="seo">SEO & Digital Marketing</option>
-                    <option value="consultation">General Consultation</option>
+                    <option value="marine-electronics">Marine Electronics Installation</option>
+                    <option value="boat-cleaning">Boat Cleaning & Maintenance</option>
+                    <option value="docking">Docking & Mooring Support</option>
+                    <option value="marine-security">Marine Security Systems</option>
+                    <option value="consultation">General Marine Consultation</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Message *
-                  </label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Message *</label>
                   <textarea
                     name="message"
                     required
@@ -208,7 +214,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white resize-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Tell us about your needs or challenges..."
+                    placeholder="Tell us about your boat, marina, or service needs..."
                   />
                 </div>
 
@@ -217,29 +223,12 @@ const Contact = () => {
                   className="w-full bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition flex items-center justify-center gap-2"
                 >
                   <Send className="h-5 w-5" />
-                  Send Request
+                  Submit Request
                 </button>
               </form>
             </div>
           </div>
         </div>
-
-        {/* Emergency CTA */}
-        <div className="mt-16 bg-blue-500 rounded-2xl p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">
-            Need Immediate IT Support?
-          </h3>
-          <p className="text-xl mb-6 opacity-90">
-            Call now for urgent technical assistance or emergency service.
-          </p>
-          <a
-            href="tel:+19493729853"
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block"
-          >
-            Call (949) 372-9853
-          </a>
-        </div>
-
       </div>
     </section>
   );
